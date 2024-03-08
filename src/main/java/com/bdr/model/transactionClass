@@ -1,0 +1,39 @@
+public class Transaction {
+	public String transactionTime;
+	private String transactionID;
+	private String transactionDate;
+	private double transactionAmount;
+	private String transactionType;
+	
+	
+	public Transaction(String transactionTime, String transactionID, String transactionDate, String transactionType, double transactionAmount) {
+		this.transactionTime = transactionTime;
+        this.transactionID = transactionID;
+        this.transactionDate = transactionDate;
+        this.transactionAmount = transactionAmount;
+        this.transactionType = transactionType;
+ 
+    }
+    
+    public String getTransactionTime() {
+        return transactionTime;
+    }
+
+    public String getTransactionID() {
+        return transactionID;
+    }
+
+    public String getUserAddress() {
+    	return transactionDate;
+    }
+    
+    public double getTransactionAmount() {
+        return transactionAmount;
+    }
+    
+    public String getTransactionType() {
+        return transactionType;
+    }
+
+
+}
