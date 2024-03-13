@@ -2,12 +2,16 @@ package com.bdr.service;
 
 import com.bdr.model.Product;
 
-public interface ProductService {
-    void getProduct(Product product);
+import java.util.List;
 
-    void setProduct(Product product, int id, String name, float price, String category) ;
+public interface ProductService {
+    Product getProduct(String name);
+
+    Product addProduct(Product product) ;
 
 
     void updateProduct(Product product);
-    void deleteProduct(Product product);
+    void deleteProduct(String name);
+
+    List<Product> getProducts();
 }

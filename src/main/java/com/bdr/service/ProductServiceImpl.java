@@ -2,40 +2,53 @@ package com.bdr.service;
 
 import com.bdr.model.Product;
 
-class ProductServiceImpl implements ProductService {
+import java.util.ArrayList;
+import java.util.List;
 
+class ProductServiceImpl implements ProductService {
+    ArrayList<Product> products = new ArrayList<Product>();
 
     @Override
-    public void getProduct(Product product) {
-        System.out.println(product.getId());
-        System.out.println(product.getName());
-        System.out.println(product.getPrice());
-        System.out.println(product.getCategory());
+    public Product getProduct(String name) {
+        for (Product product:products) {
+            if(product.getName().equals(name)){
+                return product;
+            }
+        }
 
+        return null;
     }
 
 
-    public void setProduct(Product product, int id, String name, float price, String category) {
-        product.setId(id);
-        product.setName(name);
-        product.setPrice(price);
-        product.setCategory(category);
+    public Product addProduct(Product product) {
+        products.add(product);
+        return product;
 
     }
 
     @Override
     public void updateProduct(Product product) {
 
+
     }
 
     @Override
-    public void deleteProduct(Product product) {
-        product.setId(0);
-        product.setName(null);
-        product.setPrice(0.0F);
-        product.setCategory(null);
+    public void deleteProduct(String name) {
+        for (Product product:products) {
+            if(product.getName().equals(name)){
+                products.remove(product);
+            }
+        }
+
 
     }
+
+    @Override
+    public List<Product> getProducts() {
+        return products;
+        }
+
+
 //    public static void main(String[] args) {
 //        Product p = new Product();
 //        ProductServiceImpl productService = new ProductServiceImpl();
