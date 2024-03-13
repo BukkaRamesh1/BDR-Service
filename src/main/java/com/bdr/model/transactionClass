@@ -7,7 +7,7 @@ public class Transaction {
 	
 	
 	public Transaction(String transactionTime, String transactionID, String transactionDate, String transactionType, double transactionAmount) {
-		this.transactionTime = transactionTime;
+	this.transactionTime = transactionTime;
         this.transactionID = transactionID;
         this.transactionDate = transactionDate;
         this.transactionAmount = transactionAmount;
@@ -23,7 +23,7 @@ public class Transaction {
         return transactionID;
     }
 
-    public String getUserAddress() {
+    public String getTransactionDate() {
     	return transactionDate;
     }
     
@@ -37,3 +37,35 @@ public class Transaction {
 
 
 }
+
+public void updateTransaction(String transactionTime, String transactionDate, String transactionType, double transactionAmount) {
+    if ((transactionTime.length == 0) || (transactionDate.length == 0))
+    {
+    	System.out.println("Unvalid transaction.");
+    	break;
+    }
+    else {   	
+	    this.transactionTime = transactionTime;
+	    this.transactionDate = transactionDate;
+	    this.transactionType = transactionType;
+	    this.transactionAmount = transactionAmount;
+    }
+}
+
+public Transaction createTransaction(String transactionTime, String transactionID, String transactionDate, String transactionType, double transactionAmount) {
+    Transaction newTransaction = new Transaction(transactionTime, transactionID, transactionDate, transactionType, transactionAmount);
+}
+
+public boolean transactionSuccess() {
+	if ((transactionID > 0) & (transactionAmount > 0)){
+		System.out.println("Transaction is a success.");
+		return true;
+	}
+	else {
+		System.out.println("Transaction failed.");
+		return false;
+	}
+}
+
+
+
