@@ -10,13 +10,17 @@ class ProductServiceImpl implements ProductService {
 
     @Override
     public Product getProduct(String name) {
-        for (Product product:products) {
-            if(product.getName().equals(name)){
-                return product;
+        try {
+            for (Product product : products) {
+                if (product.getName().equals(name)) {
+                    return product;
+                }
             }
         }
-
-        return null;
+        catch (NullPointerException e) {
+            System.out.println("NullPointerException"+e.getMessage());
+        }
+            return null;
     }
 
 
@@ -34,17 +38,24 @@ class ProductServiceImpl implements ProductService {
 
     @Override
     public void deleteProduct(String name) {
-        for (Product product:products) {
-            if(product.getName().equals(name)){
-                products.remove(product);
+        try {
+            for (Product product : products) {
+                if (product.getName().equals(name)) {
+                    products.remove(product);
+                }
             }
         }
-
+        catch (NullPointerException e) {
+            System.out.println("NullPointerException"+e.getMessage());
+        }
 
     }
 
     @Override
-    public List<Product> getProducts() {
+    public List<Product> getProducts() throws IllegalAccessException {
+        if(products.isEmpty()){
+            throw new IllegalAccessException("Products is empty");
+        }
         return products;
         }
 
