@@ -56,6 +56,30 @@ public Transaction createTransaction(String transactionTime, String transactionI
     Transaction newTransaction = new Transaction(transactionTime, transactionID, transactionDate, transactionType, transactionAmount);
 }
 
+public boolean deleteTransaction(String transactionID) {
+    try {
+        boolean isDeleted = deleteTransactionById(transactionID);
+        
+        if (!isDeleted) {
+            System.out.println("Transaction ID not found.");
+        }       
+        return isDeleted; 
+    } catch (Exception e) {
+        System.out.println("Error occurred while deleting transaction: " + e.getMessage());
+        return false; 
+    }
+}
+
+private boolean deleteTransactionById(String transactionID) {
+	for (Transaction transaction: transactions) {
+		if (transaction.getTransactionID().equals(transactionID)) {
+			transactions.remove(transaction);
+			return true;
+		}
+	}
+    return false;
+}
+
 public boolean transactionSuccess() {
 	if ((transactionID > 0) & (transactionAmount > 0)){
 		System.out.println("Transaction is a success.");
@@ -67,5 +91,14 @@ public boolean transactionSuccess() {
 	}
 }
 
-
+public double dailyTotalAmount(String targetDate) {
+	double totalAmount = 0.0;
+	
+	for (Transaction transaction : transactions) {
+	         if (transaction.getTransactionDate().equals(targetDate)) {
+	             totalAmount += transaction.getTransactionAmount();
+	         }
+     }
+	 return totalAmount;
+}
 
