@@ -13,5 +13,5 @@ public interface ProductService {
     void updateProduct(Product product);
     void deleteProduct(String name);
 
-    List<Product> getProducts();
+    List<Product> getProducts() throws IllegalAccessException;
 }

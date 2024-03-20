@@ -18,7 +18,7 @@ public class ProductController {
         return productService.addProduct(product);
     }
     @GetMapping("/products")
-    public List<Product> getProducts() {
+    public List<Product> getProducts() throws IllegalAccessException {
         return productService.getProducts();
     }
     @GetMapping("/products/{name}")
