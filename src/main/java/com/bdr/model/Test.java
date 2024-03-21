@@ -1,5 +1,12 @@
 package com.bdr.model;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
+import Exception.UserNotFoundException;
+
 public class Test {
 	
 	/* 
@@ -32,8 +39,22 @@ public class Test {
 	 *   Github 
 	 *     
 	 *     
+	 *     Danika -- create a git branch fetaure/danika --> creaet class under model package with name Transactions
+	 *     Revanth -- creaet a class product and add some variables realted to product
+	 *     Kathy -- create a class Category 
+	 *     Srivatsa -- crerate branch clone code create class  Orders 
 	 *     
 	 *     
+	 *     
+	 *     
+	 *     
+	 *     git clone hhtps
+	 *     cd project
+	 *     git branch
+	 *     git checkout -b feature/name
+	 *     git add file name
+	 *     git commit -m ""
+	 *     git push -u origin feature/name
 	 *     
 	 *     
 	 *     
@@ -521,12 +542,121 @@ Or, if you don't want/need a background service you can just run:
 	 *     
 	 *     
 	 *     
-	 *     
-	 *    
+	 *      public is access specifier 
+	 *      static is a keywork where all the static members are loaded at the time of project iunitialisation
+	 *      void is a return type that expects nothings  as a return 
+	 *      
+	 *      String is data type
+	 *      args[] 
+	 *      
+	 *      
+	 *      
+	 *      
+	 *      
+	 *      
+	 *      OOPS 
+	 *      
+	 *      Exception handling 
+	 *      
+	 *      Checked exceptions -- compile time errors 
+	 *      Unchecked exceptions  -- run time errors
+	 *      
+	 *       
+	 *      
+	 *      
+	 *      Try{
+	 *      
+	 *      }
+	 *      
+	 *      try {
+	 *      
+	 *      }catch(){
+	 *      
+	 *      }
+	 *      
+	 *      try {
+	 *      
+	 *      }catch (){
+	 *      
+	 *      }catch(){
+	 *      }      
+	 *      
+	 *      
+	 *      nested try 
+	 *      
+	 *      try {
+	 *         
+	 *         
+	 *         try{
+	 *         
+	 *         }catch(){
+	 *         }
+	 *      }
+	 *      
+	 *      finally block --  weather you got exception or not the finally block will be executed by defauly if you declare
+	 *      
+	 *      throw -- will be inside catch nlocl to call custom exceptions
+	 *      
+	 *      throws --  followed by menthod name 
+	 *      
 	 * 
 	 * 
 	 */
 	
+	
+	
+	public static void main (String args[]) throws ArrayIndexOutOfBoundsException{
+		
+		
+		
+		
+		
+		
+		File f = new File("d:/test");
+		
+		try {
+		FileReader  fr = new FileReader(f);
+		
+		
+		int number[] = {1,2,3,4};  // 0, 1 unchecked exceptions
+		System.out.println(number[4]);
+		
+		
+		
+		}catch(FileNotFoundException | IOException e) {
+			e.printStackTrace();
+		}catch(IOException ex) {
+			ex.printStackTrace();
+			throw new UserNotFoundException("Not found");  // custom exceptions 
+			
+			
+		}finally{
+			System.out.println("delete user ");  // remove memnory system.gc();
+		}
+		
+		//create a object of user and access the members of it
+		
+		Address a = new Address();
+		a.testUser();  // 
+		
+		
+		User u = new User();  // this will happen via default constructor
+		u.userStatus = false;
+		
+		//u.testUser();   // ehats the output here   
+		
+		//System.out.println(u.createUser());  // 
+		
+		
+		User u1 = new User(1, "asd");
+		u1.testUser();
+		
+		
+		
+		
+		
+		
+	}
 	
 
 }

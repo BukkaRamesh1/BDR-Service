@@ -1,12 +1,12 @@
 package com.bdr.service;
 
-import org.springframework.stereotype.Service;
+import com.bdr.model.User;
 
-import jakarta.transaction.Transactional;
-
-@Service
-@Transactional
-public class UserService {
+public interface UserService {
+	
+	
+	 public User createUser(User user) ;
+	 public User getUser();
 	
 	
 
